@@ -1,37 +1,509 @@
-Meu blog tech
 
-Vou compartilhar conhecimentos sobre tecnologia e programação  
-<p>Meu blog tech</p>
-
-<p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
-<h1>Meu blog tech</h1>
-<h1>Meu blog tech</h1>
-
-<p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
-<p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
 <!DOCTYPE html>
-
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-</head>
-<body>
-
-</body>
-</html>
-<html lang="pt-br"></html>
-<!DOCTYPE html>
-
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog Tech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23667eea;stop-opacity:1" /><stop offset="100%" style="stop-color:%23764ba2;stop-opacity:1" /></linearGradient></defs><rect width="1200" height="600" fill="url(%23grad)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 8rem 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #667eea;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .recipe-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .recipe-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .recipe-content {
+            padding: 1.5rem;
+        }
+
+        .recipe-content h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .recipe-content p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .recipe-info {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .recipe-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: box-shadow 0.3s;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
+
+        .article-thumbnail {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .article-content {
+            padding: 1.2rem;
+        }
+
+        .article-content h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .article-content p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            height: 200px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<h1>Meu blog tech</h1>
-<p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                💻 Tech & Code
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#artigos">Artigos</a></li>
+                    <li><a href="#tutoriais">Tutoriais</a></li>
+                    <li><a href="#dicas">Dicas</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>Tech & Code</h1>
+        <p>Aprenda programação, web development e tecnologias modernas</p>
+    </div>
+
+    <div class="container">
+        <section id="artigos">
+            <h2>Artigos em Destaque</h2>
+            <div class="recipes-grid">
+                <div class="recipe-card">
+                    <div class="recipe-image">🚀</div>
+                    <div class="recipe-content">
+                        <h3>JavaScript Moderno em 2024</h3>
+                        <p>Conheça as últimas features do JavaScript e como utilizá-las nos seus projetos.</p>
+                        <div class="recipe-info">
+                            <span>⏱️ 8 min leitura</span>
+                            <span>📚 JavaScript</span>
+                        </div>
+                        <button class="btn" style="margin-top: 1rem;">Ler Artigo</button>
+                    </div>
+                </div>
+
+                <div class="recipe-card">
+                    <div class="recipe-image">⚛️</div>
+                    <div class="recipe-content">
+                        <h3>React Hooks - Guia Completo</h3>
+                        <p>Domine os Hooks do React e construa componentes funcionais mais poderosos.</p>
+                        <div class="recipe-info">
+                            <span>⏱️ 12 min leitura</span>
+                            <span>📚 React</span>
+                        </div>
+                        <button class="btn" style="margin-top: 1rem;">Ler Artigo</button>
+                    </div>
+                </div>
+
+                <div class="recipe-card">
+                    <div class="recipe-image">🐍</div>
+                    <div class="recipe-content">
+                        <h3>Python para Data Science</h3>
+                        <p>Aprenda Python e suas bibliotecas essenciais para análise de dados.</p>
+                        <div class="recipe-info">
+                            <span>⏱️ 15 min leitura</span>
+                            <span>📚 Python</span>
+                        </div>
+                        <button class="btn" style="margin-top: 1rem;">Ler Artigo</button>
+                    </div>
+                </div>
+
+                <div class="recipe-card">
+                    <div class="recipe-image">🎨</div>
+                    <div class="recipe-content">
+                        <h3>Web Design Responsivo</h3>
+                        <p>Crie interfaces incríveis que funcionam em todos os dispositivos.</p>
+                        <div class="recipe-info">
+                            <span>⏱️ 10 min leitura</span>
+                            <span>📚 CSS</span>
+                        </div>
+                        <button class="btn" style="margin-top: 1rem;">Ler Artigo</button>
+                    </div>
+                </div>
+
+                <div class="recipe-card">
+                    <div class="recipe-image">🗄️</div>
+                    <div class="recipe-content">
+                        <h3>Banco de Dados SQL</h3>
+                        <p>Domine SQL e otimize suas consultas para máximo desempenho.</p>
+                        <div class="recipe-info">
+                            <span>⏱️ 14 min leitura</span>
+                            <span>📚 Database</span>
+                        </div>
+                        <button class="btn" style="margin-top: 1rem;">Ler Artigo</button>
+                    </div>
+                </div>
+
+                <div class="recipe-card">
+                    <div class="recipe-image">🔐</div>
+                    <div class="recipe-content">
+                        <h3>Segurança Web Essencial</h3>
+                        <p>Proteja suas aplicações contra as vulnerabilidades mais comuns.</p>
+                        <div class="recipe-info">
+                            <span>⏱️ 11 min leitura</span>
+                            <span>📚 Security</span>
+                        </div>
+                        <button class="btn" style="margin-top: 1rem;">Ler Artigo</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tutoriais">
+            <h2>Tutoriais Passo a Passo</h2>
+            <div class="articles-grid">
+                <div class="article-card">
+                    <div class="article-thumbnail">🌐</div>
+                    <div class="article-content">
+                        <h3>Seu Primeiro Website</h3>
+                        <p>Crie seu primeiro site do zero com HTML, CSS e JavaScript básico.</p>
+                        <div class="article-meta">📅 25 de junho, 2024</div>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-thumbnail">📦</div>
+                    <div class="article-content">
+                        <h3>Git e GitHub na Prática</h3>
+                        <p>Aprenda controle de versão e como trabalhar com repositórios remotos.</p>
+                        <div class="article-meta">📅 20 de junho, 2024</div>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-thumbnail">⚙️</div>
+                    <div class="article-content">
+                        <h3>Node.js para Iniciantes</h3>
+                        <p>Construa um servidor backend com Node.js e Express.js.</p>
+                        <div class="article-meta">📅 15 de junho, 2024</div>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-thumbnail">🔧</div>
+                    <div class="article-content">
+                        <h3>Ferramentas de Dev Essenciais</h3>
+                        <p>Conheça as melhores ferramentas para melhorar sua produtividade.</p>
+                        <div class="article-meta">📅 10 de junho, 2024</div>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-thumbnail">🧪</div>
+                    <div class="article-content">
+                        <h3>Testes Automatizados</h3>
+                        <p>Escreva testes para garantir a qualidade do seu código.</p>
+                        <div class="article-meta">📅 5 de junho, 2024</div>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-thumbnail">📱</div>
+                    <div class="article-content">
+                        <h3>Desenvolvendo com React Native</h3>
+                        <p>Crie aplicativos móveis com JavaScript usando React Native.</p>
+                        <div class="article-meta">📅 1 de junho, 2024</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dicas">
+            <h2>Dicas Rápidas</h2>
+            <div class="gallery">
+                <div class="gallery-item">💡</div>
+                <div class="gallery-item">⚡</div>
+                <div class="gallery-item">🎯</div>
+                <div class="gallery-item">🚀</div>
+                <div class="gallery-item">🔥</div>
+                <div class="gallery-item">✨</div>
+                <div class="gallery-item">🎓</div>
+                <div class="gallery-item">🏆</div>
+            </div>
+        </section>
+    </div>
+
+    <footer id="contato">
+        <div class="container">
+            <h3>Conecte-se Comigo</h3>
+            <p>Email: contato@techcode.com</p>
+            <p>Telefone: (11) 99999-9999</p>
+            <div class="social-links">
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">YouTube</a>
+            </div>
+            <p style="margin-top: 2rem; opacity: 0.8;">© 2024 Tech & Code. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>
